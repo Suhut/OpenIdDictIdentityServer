@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.33927.210
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenIdDictIdentityServer", "OpenIdDictIdentityServer\OpenIdDictIdentityServer.csproj", "{0466EDD2-B4CB-409E-9882-2AF14ECEFC00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BFF", "BFF\BFF.csproj", "{44652C6D-EBDC-4DBC-8B8A-CCD47296D126}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0466EDD2-B4CB-409E-9882-2AF14ECEFC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0466EDD2-B4CB-409E-9882-2AF14ECEFC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0466EDD2-B4CB-409E-9882-2AF14ECEFC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0466EDD2-B4CB-409E-9882-2AF14ECEFC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44652C6D-EBDC-4DBC-8B8A-CCD47296D126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44652C6D-EBDC-4DBC-8B8A-CCD47296D126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44652C6D-EBDC-4DBC-8B8A-CCD47296D126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44652C6D-EBDC-4DBC-8B8A-CCD47296D126}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDAF089C-12BC-439E-AF0A-E41E6AB6175A}
+	EndGlobalSection
+EndGlobal
