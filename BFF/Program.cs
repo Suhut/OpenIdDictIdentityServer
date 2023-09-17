@@ -15,7 +15,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddOpenIddict()
     .AddValidation(options =>
     {
-        options.SetIssuer("https://localhost:7211/");
+        options.SetIssuer("http://localhost:7211/");
         options.AddAudiences("Resource_Bff");
 
         options.UseIntrospection()

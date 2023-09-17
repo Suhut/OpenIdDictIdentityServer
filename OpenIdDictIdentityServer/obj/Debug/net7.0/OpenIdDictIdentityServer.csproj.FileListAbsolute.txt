@@ -622,3 +622,4 @@ C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.pdb
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.genruntimeconfig.cache
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\ref\OpenIdDictIdentityServer.dll
+C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.sourcelink.json

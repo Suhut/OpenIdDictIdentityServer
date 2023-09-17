@@ -101,7 +101,8 @@ builder.Services.AddOpenIddict()
                 .EnableTokenEndpointPassthrough()
                 .EnableUserinfoEndpointPassthrough()
                 .EnableStatusCodePagesIntegration()
-                ;
+                .DisableTransportSecurityRequirement();
+        ;
     })
     .AddValidation(options=>
     {

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "4e645f46-44e3-4fd6-a551-72c9adeb8613",
 		"name": "OpenIdDictIdentityServer",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "http://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29779487"
 	},
 	"item": [
@@ -15,8 +15,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:7105/WeatherForecast",
-							"protocol": "https",
+							"raw": "http://localhost:7105/WeatherForecast",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -66,7 +66,7 @@
 			},
 			{
 				"key": "redirect_uri",
-				"value": "https://oauth.pstmn.io/v1/callback",
+				"value": "http://oauth.pstmn.io/v1/callback",
 				"type": "string"
 			},
 			{
@@ -109,7 +109,7 @@
 	"variable": [
 		{
 			"key": "identity_address",
-			"value": "https://localhost:7211"
+			"value": "http://localhost:7211"
 		},
 		{
 			"key": "client_id",

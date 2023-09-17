@@ -18,14 +18,42 @@ namespace OpenIdDictIdentityServer.Data.Seed
             using var scope = _serviceProvider.CreateScope();
             var manager = scope.ServiceProvider.GetRequiredService<IOpenIddictApplicationManager>();
 
-            #region Postman
-            string postmanClient = "PostManClient";
 
-            var postman = await manager.FindByClientIdAsync(postmanClient);
-            if (postman != null)
-            { 
-                await manager.DeleteAsync(postman);
+            #region NextJs
+            string nextJsClient = "NextJsClient"; 
+            if (await manager.FindByClientIdAsync(nextJsClient) == null)
+            {
+                await manager.CreateAsync(new OpenIddictApplicationDescriptor
+                {
+                    ClientId = nextJsClient,
+                    ClientSecret = "NextJs-Secret",
+                    ConsentType = ConsentTypes.Implicit,
+                    DisplayName = "NextJs UI Aplication",
+                    RedirectUris = { new Uri("http://localhost:3000/api/auth/callback/openiddict") },
+                    Permissions =
+                    {
+                        Permissions.Endpoints.Authorization,
+                        Permissions.Endpoints.Logout,
+                        Permissions.Endpoints.Token,
+                        Permissions.GrantTypes.AuthorizationCode,
+                        Permissions.GrantTypes.RefreshToken,
+                        Permissions.GrantTypes.ClientCredentials,
+                        Permissions.GrantTypes.ClientCredentials,
+                        Permissions.ResponseTypes.Code,
+                        Permissions.Scopes.Email,
+                        Permissions.Scopes.Profile,
+                        Permissions.Scopes.Roles, 
+                    },
+                    Requirements =
+                    {
+                        Requirements.Features.ProofKeyForCodeExchange
+                    }
+                });
             }
+            #endregion
+
+            #region Postman
+            string postmanClient = "PostManClient"; 
 
             if (await manager.FindByClientIdAsync(postmanClient) == null)
             {
