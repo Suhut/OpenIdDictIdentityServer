@@ -606,6 +606,7 @@ C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.MvcApplicationPartsAssemblyInfo.cache
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.RazorAssemblyInfo.cache
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.RazorAssemblyInfo.cs
+C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.sourcelink.json
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\staticwebassets.build.json
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\staticwebassets.development.json
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\staticwebassets\msbuild.OpenIdDictIdentityServer.Microsoft.AspNetCore.StaticWebAssets.props
@@ -622,4 +623,3 @@ C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.pdb
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.genruntimeconfig.cache
 C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\ref\OpenIdDictIdentityServer.dll
-C:\SUHUT\DOTNET\OpenIdDictIdentityServer\OpenIdDictIdentityServer\obj\Debug\net7.0\OpenIdDictIdentityServer.sourcelink.json

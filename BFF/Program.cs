@@ -2,7 +2,14 @@ using OpenIddict.Validation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        builder => builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
 
 builder.Services.AddAuthentication(options =>
 {
@@ -28,7 +35,6 @@ builder.Services.AddOpenIddict()
     );
 #endregion
 
-
 builder.Services.AddAuthorization();
 
 builder.Services.AddControllers();
@@ -36,7 +42,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+
+
 var app = builder.Build();
+
+
+//app.UseCors("EnableCORS");  //app.UseCors("CorsPolicy");
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()); // allow credentials
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

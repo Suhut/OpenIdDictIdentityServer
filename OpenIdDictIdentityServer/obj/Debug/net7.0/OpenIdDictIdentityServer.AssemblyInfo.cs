@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OpenIdDictIdentityServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cb5a92abdabe24f8e4a9c4aa331a211e55e5502")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dace8d0602c2fbda559ac7eca9bbb380fa65a45f")]
 [assembly: System.Reflection.AssemblyProductAttribute("OpenIdDictIdentityServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OpenIdDictIdentityServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

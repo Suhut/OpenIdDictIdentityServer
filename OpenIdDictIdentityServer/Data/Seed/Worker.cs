@@ -20,7 +20,11 @@ namespace OpenIdDictIdentityServer.Data.Seed
 
 
             #region NextJs
-            string nextJsClient = "NextJsClient"; 
+            string nextJsClient = "NextJsClient";
+
+            //var obj = await manager.FindByClientIdAsync(nextJsClient);
+            //await manager.DeleteAsync(obj);
+
             if (await manager.FindByClientIdAsync(nextJsClient) == null)
             {
                 await manager.CreateAsync(new OpenIddictApplicationDescriptor
@@ -42,7 +46,8 @@ namespace OpenIdDictIdentityServer.Data.Seed
                         Permissions.ResponseTypes.Code,
                         Permissions.Scopes.Email,
                         Permissions.Scopes.Profile,
-                        Permissions.Scopes.Roles, 
+                        Permissions.Scopes.Roles,
+                        Permissions.Prefixes.Scope + "apibff",
                     },
                     Requirements =
                     {
@@ -53,7 +58,10 @@ namespace OpenIdDictIdentityServer.Data.Seed
             #endregion
 
             #region Postman
-            string postmanClient = "PostManClient"; 
+            string postmanClient = "PostManClient";
+
+            //var obj1 = await manager.FindByClientIdAsync(postmanClient);
+            //await manager.DeleteAsync(obj1);
 
             if (await manager.FindByClientIdAsync(postmanClient) == null)
             {
