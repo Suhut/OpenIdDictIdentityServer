@@ -22,7 +22,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddOpenIddict()
     .AddValidation(options =>
     {
-        options.SetIssuer("http://localhost:7211/");
+        options.SetIssuer("http://192.168.8.109:7211/");
         options.AddAudiences("Resource_Bff");
 
         options.UseIntrospection()

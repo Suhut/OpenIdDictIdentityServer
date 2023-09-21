@@ -45,7 +45,7 @@ namespace OpenIdDictIdentityServer.Data.Seed
             {
                 Email = "suhut.wadiyo@outlook.com",
                 UserName = "suhut.wadiyo@outlook.com",
-                EmailConfirmed = true,
+                EmailConfirmed = true, 
             }
             ;
 

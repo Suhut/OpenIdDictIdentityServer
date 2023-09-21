@@ -18,6 +18,46 @@ namespace OpenIdDictIdentityServer.Data.Seed
             using var scope = _serviceProvider.CreateScope();
             var manager = scope.ServiceProvider.GetRequiredService<IOpenIddictApplicationManager>();
 
+            #region Flutter
+            string flutterClient = "FlutterClient";
+
+            //var obj = await manager.FindByClientIdAsync(flutterClient);
+            //if (obj != null)
+            //{ 
+            //    await manager.DeleteAsync(obj);
+            //}
+
+            if (await manager.FindByClientIdAsync(flutterClient) == null)
+            {
+                await manager.CreateAsync(new OpenIddictApplicationDescriptor
+                {
+                    ClientId = flutterClient, 
+                    ConsentType = ConsentTypes.Implicit,
+                    DisplayName = "Flutter UI Aplication",
+                    Type = OpenIddictConstants.ClientTypes.Public, 
+                    RedirectUris = { new Uri("http://localhost:3000/") },
+                    Permissions =
+                    {
+                        Permissions.Endpoints.Authorization,
+                        Permissions.Endpoints.Logout,
+                        Permissions.Endpoints.Token,
+                        Permissions.GrantTypes.AuthorizationCode,
+                        Permissions.GrantTypes.RefreshToken,
+                        Permissions.GrantTypes.ClientCredentials,
+                        Permissions.GrantTypes.ClientCredentials,
+                        Permissions.ResponseTypes.Code,
+                        Permissions.Scopes.Email,
+                        Permissions.Scopes.Profile,
+                        Permissions.Scopes.Roles,
+                        Permissions.Prefixes.Scope + "apibff",
+                    },
+                    Requirements =
+                    {
+                        Requirements.Features.ProofKeyForCodeExchange
+                    }
+                });
+            }
+            #endregion
 
             #region NextJs
             string nextJsClient = "NextJsClient";
@@ -33,7 +73,7 @@ namespace OpenIdDictIdentityServer.Data.Seed
                     ClientSecret = "NextJs-Secret",
                     ConsentType = ConsentTypes.Implicit,
                     DisplayName = "NextJs UI Aplication",
-                    RedirectUris = { new Uri("http://localhost:3000/api/auth/callback/openiddict") },
+                    RedirectUris = { new Uri("http://192.168.8.109:3000/api/auth/callback/openiddict") },
                     Permissions =
                     {
                         Permissions.Endpoints.Authorization,
