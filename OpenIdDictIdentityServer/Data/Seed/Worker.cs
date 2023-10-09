@@ -20,6 +20,48 @@ namespace OpenIdDictIdentityServer.Data.Seed
 
 
             #region 
+            string oAuthClient = "OAuthClient";
+
+            var obj = await manager.FindByClientIdAsync(oAuthClient);
+            if (obj != null)
+            {
+                await manager.DeleteAsync(obj);
+            }
+
+            if (await manager.FindByClientIdAsync(oAuthClient) == null)
+            {
+                await manager.CreateAsync(new OpenIddictApplicationDescriptor
+                {
+                    ClientId = oAuthClient,
+                    ClientSecret = "OAuth-Secret",
+                    ConsentType = ConsentTypes.Explicit,
+                    DisplayName = "OAuth UI Aplication", 
+                    RedirectUris = { new Uri("https://localhost:5005/cb-oauth") }, 
+                    Permissions =
+                    {
+                        Permissions.Endpoints.Authorization,
+                        Permissions.Endpoints.Logout,
+                        Permissions.Endpoints.Token,
+                        Permissions.GrantTypes.AuthorizationCode,
+                        Permissions.GrantTypes.RefreshToken,
+                        Permissions.GrantTypes.ClientCredentials,
+                        Permissions.ResponseTypes.Code,
+                        Permissions.Scopes.Email,
+                        Permissions.Scopes.Profile,
+                        Permissions.Scopes.Roles,
+                        Permissions.Prefixes.Scope + "apibff",
+
+                    },
+                    Requirements =
+                    {
+                        Requirements.Features.ProofKeyForCodeExchange
+                    }
+                });
+            }
+            #endregion
+
+
+            #region 
             string authenticationSchemaClient = "AuthenticationSchemaClient";
 
             //var obj = await manager.FindByClientIdAsync(authenticationSchemaClient);
