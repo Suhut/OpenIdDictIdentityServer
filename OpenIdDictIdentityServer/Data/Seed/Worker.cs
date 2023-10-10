@@ -34,7 +34,7 @@ namespace OpenIdDictIdentityServer.Data.Seed
                 {
                     ClientId = oAuthClient,
                     ClientSecret = "OAuth-Secret",
-                    ConsentType = ConsentTypes.Explicit,
+                    ConsentType = ConsentTypes.Implicit,
                     DisplayName = "OAuth UI Aplication", 
                     RedirectUris = { new Uri("https://localhost:5005/cb-oauth") }, 
                     Permissions =
