@@ -19,24 +19,25 @@ namespace OpenIdDictIdentityServer.Data.Seed
             var manager = scope.ServiceProvider.GetRequiredService<IOpenIddictApplicationManager>();
 
 
-            #region 
-            string oAuthClient = "OAuthClient";
 
-            var obj = await manager.FindByClientIdAsync(oAuthClient);
+            #region 
+            string oPatreonClient = "PatreonClient";
+
+            var obj = await manager.FindByClientIdAsync(oPatreonClient);
             if (obj != null)
             {
                 await manager.DeleteAsync(obj);
             }
 
-            if (await manager.FindByClientIdAsync(oAuthClient) == null)
+            if (await manager.FindByClientIdAsync(oPatreonClient) == null)
             {
                 await manager.CreateAsync(new OpenIddictApplicationDescriptor
                 {
-                    ClientId = oAuthClient,
-                    ClientSecret = "OAuth-Secret",
+                    ClientId = oPatreonClient,
+                    ClientSecret = "Patreon-Secret",
                     ConsentType = ConsentTypes.Implicit,
-                    DisplayName = "OAuth UI Aplication", 
-                    RedirectUris = { new Uri("https://localhost:5005/cb-oauth") }, 
+                    DisplayName = "Patreon UI Aplication",
+                    RedirectUris = { new Uri("https://localhost:5005/oauth/patreon-cb") },
                     Permissions =
                     {
                         Permissions.Endpoints.Authorization,
@@ -50,6 +51,47 @@ namespace OpenIdDictIdentityServer.Data.Seed
                         Permissions.Scopes.Profile,
                         Permissions.Scopes.Roles,
                         Permissions.Prefixes.Scope + "apibff",
+
+                    },
+                    Requirements =
+                    {
+                        Requirements.Features.ProofKeyForCodeExchange
+                    }
+                });
+            }
+            #endregion
+
+            #region 
+            string oAuthClient = "OAuthClient";
+
+            //var obj = await manager.FindByClientIdAsync(oAuthClient);
+            //if (obj != null)
+            //{
+            //    await manager.DeleteAsync(obj);
+            //}
+
+            if (await manager.FindByClientIdAsync(oAuthClient) == null)
+            {
+                await manager.CreateAsync(new OpenIddictApplicationDescriptor
+                {
+                    ClientId = oAuthClient,
+                    ClientSecret = "OAuth-Secret",
+                    ConsentType = ConsentTypes.Implicit,
+                    DisplayName = "OAuth UI Aplication", 
+                    RedirectUris = { new Uri("https://localhost:5005/cb-oauth") },  
+                    Permissions =
+                    {
+                        Permissions.Endpoints.Authorization,
+                        Permissions.Endpoints.Logout,
+                        Permissions.Endpoints.Token,
+                        Permissions.GrantTypes.AuthorizationCode,
+                        Permissions.GrantTypes.RefreshToken,
+                        Permissions.GrantTypes.ClientCredentials,
+                        Permissions.ResponseTypes.Code,
+                        Permissions.Scopes.Email,
+                        Permissions.Scopes.Profile,
+                        Permissions.Scopes.Roles,
+                        Permissions.Prefixes.Scope + "apibff", 
 
                     },
                     Requirements =
