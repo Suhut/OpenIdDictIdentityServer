@@ -19,15 +19,55 @@ namespace OpenIdDictIdentityServer.Data.Seed
             var manager = scope.ServiceProvider.GetRequiredService<IOpenIddictApplicationManager>();
 
 
+            #region ConsoleClient
+            string oConsoleClient = "ConsoleClient";
 
-            #region 
-            string oPatreonClient = "PatreonClient";
-
-            var obj = await manager.FindByClientIdAsync(oPatreonClient);
+            var obj = await manager.FindByClientIdAsync(oConsoleClient);
             if (obj != null)
             {
                 await manager.DeleteAsync(obj);
             }
+
+            if (await manager.FindByClientIdAsync(oConsoleClient) == null)
+            {
+                await manager.CreateAsync(new OpenIddictApplicationDescriptor
+                {
+                    ClientId = oConsoleClient, 
+                    ConsentType = ConsentTypes.Implicit,
+                    DisplayName = "Console UI Aplication",
+                    Type = OpenIddictConstants.ClientTypes.Public,
+                    RedirectUris = { new Uri("https://localhost:5005/auth-cb") },
+                    Permissions =
+                    {
+                        Permissions.Endpoints.Authorization,
+                        Permissions.Endpoints.Logout,
+                        Permissions.Endpoints.Token,
+                        Permissions.GrantTypes.AuthorizationCode,
+                        Permissions.GrantTypes.RefreshToken,
+                        Permissions.GrantTypes.ClientCredentials,
+                        Permissions.ResponseTypes.Code,
+                        Permissions.Scopes.Email,
+                        Permissions.Scopes.Profile,
+                        Permissions.Scopes.Roles,
+                        Permissions.Prefixes.Scope + "apibff",
+
+                    },
+                    Requirements =
+                    {
+                        Requirements.Features.ProofKeyForCodeExchange
+                    }
+                });
+            }
+            #endregion
+
+            #region PatreonClient
+            string oPatreonClient = "PatreonClient";
+
+            //var obj = await manager.FindByClientIdAsync(oPatreonClient);
+            //if (obj != null)
+            //{
+            //    await manager.DeleteAsync(obj);
+            //}
 
             if (await manager.FindByClientIdAsync(oPatreonClient) == null)
             {
@@ -61,7 +101,7 @@ namespace OpenIdDictIdentityServer.Data.Seed
             }
             #endregion
 
-            #region 
+            #region OAuthClient
             string oAuthClient = "OAuthClient";
 
             //var obj = await manager.FindByClientIdAsync(oAuthClient);
@@ -103,7 +143,7 @@ namespace OpenIdDictIdentityServer.Data.Seed
             #endregion
 
 
-            #region 
+            #region AuthenticationSchemaClient
             string authenticationSchemaClient = "AuthenticationSchemaClient";
 
             //var obj = await manager.FindByClientIdAsync(authenticationSchemaClient);
@@ -144,7 +184,7 @@ namespace OpenIdDictIdentityServer.Data.Seed
             }
             #endregion
 
-            #region Flutter
+            #region FlutterClient
             string flutterClient = "FlutterClient";
 
             //var obj = await manager.FindByClientIdAsync(flutterClient);
@@ -184,7 +224,7 @@ namespace OpenIdDictIdentityServer.Data.Seed
             }
             #endregion
 
-            #region NextJs
+            #region NextJsClient
             string nextJsClient = "NextJsClient";
 
             //var obj = await manager.FindByClientIdAsync(nextJsClient);
@@ -221,7 +261,7 @@ namespace OpenIdDictIdentityServer.Data.Seed
             }
             #endregion
 
-            #region Postman
+            #region PostManClient
             string postmanClient = "PostManClient";
 
             //var obj1 = await manager.FindByClientIdAsync(postmanClient);
@@ -258,7 +298,7 @@ namespace OpenIdDictIdentityServer.Data.Seed
             }
             #endregion
 
-            #region BFF
+            #region Resource_Bff
             string resource_Bff = "Resource_Bff";
             if (await manager.FindByClientIdAsync(resource_Bff) == null)
             {

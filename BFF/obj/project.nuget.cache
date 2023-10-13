@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sYuWWimS+g+mmXC4CGRxfQUYQNJzWXz9HxQtGqoLmvT7QYYz4TFa1vNRSxH+sAm48Dnk+8CBMhntHUfnFqL6hQ==",
+  "dgSpecHash": "pdYBqr80hp77cxLpoW8ClequNy5rXJAhU3/tzD0Y1PhgwH+YfSloc4YEOlxBEPwKi4+1vBsmGZiA5S2ZfDMl0Q==",
   "success": true,
   "projectFilePath": "C:\\SUHUT\\DOTNET\\OpenIdDictIdentityServer\\BFF\\BFF.csproj",
   "expectedPackageFiles": [
