@@ -18,15 +18,97 @@ namespace OpenIdDictIdentityServer.Data.Seed
             using var scope = _serviceProvider.CreateScope();
             var manager = scope.ServiceProvider.GetRequiredService<IOpenIddictApplicationManager>();
 
+            #region BffClient02
+            string oBffClient02 = "BffClient02";
 
-            #region ConsoleClient
-            string oConsoleClient = "ConsoleClient";
-
-            var obj = await manager.FindByClientIdAsync(oConsoleClient);
+            var obj = await manager.FindByClientIdAsync(oBffClient02);
             if (obj != null)
             {
                 await manager.DeleteAsync(obj);
             }
+
+            if (await manager.FindByClientIdAsync(oBffClient02) == null)
+            {
+                await manager.CreateAsync(new OpenIddictApplicationDescriptor
+                {
+                    ClientId = oBffClient02,
+                    ClientSecret = "Bff-Secret02",
+                    ConsentType = ConsentTypes.Implicit,
+                    DisplayName = "BFF 02 UI Aplication",
+                    RedirectUris = { new Uri("https://localhost:7200/oauth/yt-cb") },
+                    Permissions =
+                    {
+                        Permissions.Endpoints.Authorization,
+                        Permissions.Endpoints.Logout,
+                        Permissions.Endpoints.Token,
+                        Permissions.GrantTypes.AuthorizationCode,
+                        Permissions.GrantTypes.RefreshToken,
+                        Permissions.GrantTypes.ClientCredentials,
+                        Permissions.ResponseTypes.Code,
+                        Permissions.Scopes.Email,
+                        Permissions.Scopes.Profile,
+                        Permissions.Scopes.Roles,
+                        Permissions.Prefixes.Scope + "apibff",
+
+                    },
+                    Requirements =
+                    {
+                        Requirements.Features.ProofKeyForCodeExchange
+                    }
+                });
+            }
+            #endregion
+
+
+            #region BffClient
+            string oBffClient = "BffClient";
+
+            //var obj = await manager.FindByClientIdAsync(oBffClient);
+            //if (obj != null)
+            //{
+            //    await manager.DeleteAsync(obj);
+            //}
+
+            if (await manager.FindByClientIdAsync(oBffClient) == null)
+            {
+                await manager.CreateAsync(new OpenIddictApplicationDescriptor
+                {
+                    ClientId = oBffClient,
+                    ClientSecret = "Bff-Secret",
+                    ConsentType = ConsentTypes.Implicit,
+                    DisplayName = "BFF UI Aplication",
+                    RedirectUris = { new Uri("https://localhost:7100/oauth/yt-cb") },
+                    Permissions =
+                    {
+                        Permissions.Endpoints.Authorization,
+                        Permissions.Endpoints.Logout,
+                        Permissions.Endpoints.Token,
+                        Permissions.GrantTypes.AuthorizationCode,
+                        Permissions.GrantTypes.RefreshToken,
+                        Permissions.GrantTypes.ClientCredentials,
+                        Permissions.ResponseTypes.Code,
+                        Permissions.Scopes.Email,
+                        Permissions.Scopes.Profile,
+                        Permissions.Scopes.Roles,
+                        Permissions.Prefixes.Scope + "apibff",
+
+                    },
+                    Requirements =
+                    {
+                        Requirements.Features.ProofKeyForCodeExchange
+                    }
+                });
+            }
+            #endregion
+
+            #region ConsoleClient
+            string oConsoleClient = "ConsoleClient";
+
+            //var obj = await manager.FindByClientIdAsync(oConsoleClient);
+            //if (obj != null)
+            //{
+            //    await manager.DeleteAsync(obj);
+            //}
 
             if (await manager.FindByClientIdAsync(oConsoleClient) == null)
             {
